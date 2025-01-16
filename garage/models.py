@@ -108,3 +108,7 @@ def get_cars_with_brands_without_orm_objects() -> list[dict[str, str]]:
         }
         for car in cars
     ]
+
+
+def get_limited_car_set() -> list['Car']:
+    return Car.objects.select_related('brand', 'owner').defer('brand__very_very_large_data_field')[:100]
