@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}My Page{% endblock %}
+{% block content %}
+<h1>Test</h1>
+<a href="{% url 'create_car' %}">Add Car</a>
+
+{% for car in object_list %}
+<p><a href="/{{ car.id }}/">({{ car.id }}) {{ car.brand.name }} - {{ car.owner.name }}</a></p>
+{% endfor %}
+
+{% endblock %}
